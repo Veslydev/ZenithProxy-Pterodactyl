@@ -4,10 +4,7 @@ on:
   schedule:
     - cron: "0 0 * * 1"
   push:
-    branches:
-      - main
-    paths:
-      - zenith/**
+
 jobs:
   push:
     name: "zenith_${{ matrix.tag }}"
