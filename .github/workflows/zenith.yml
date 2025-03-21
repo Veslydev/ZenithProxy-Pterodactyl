@@ -5,6 +5,12 @@ on:
     - cron: "0 0 * * 1"
   push:
 
+# Add permissions block to explicitly grant package write access
+permissions:
+    contents: read
+    packages: write
+    id-token: write
+
 jobs:
   push:
     name: "zenith_${{ matrix.tag }}"
