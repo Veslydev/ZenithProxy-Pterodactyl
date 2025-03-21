@@ -16,8 +16,6 @@ jobs:
           - '3.0'
     steps:
       - uses: actions/checkout@v4
-      # Setup QEMU for ARM64 Build
-      - uses: docker/setup-qemu-action@v3          
       - uses: docker/setup-buildx-action@v3
         with:
           buildkitd-flags: --debug
@@ -30,7 +28,7 @@ jobs:
         with:
           context: ./zenith
           file: ./zenith/${{ matrix.tag }}/Dockerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: |
             ghcr.io/veslydev/zenith_${{ matrix.tag }}
